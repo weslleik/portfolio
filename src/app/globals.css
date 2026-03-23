@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono:    'DM Mono', monospace;
+  --font-display: 'Outfit', sans-serif;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#09080f] text-[#ede8f5] antialiased overflow-x-hidden;
+    font-family: var(--font-display);
+    cursor: none;
+  }
+
+  .dark body {
+    @apply bg-[#09080f] text-[#ede8f5];
+  }
+
+  body.light {
+    @apply bg-[#f5f0ff] text-[#1a0a2e];
+  }
+
+  ::selection {
+    background: rgba(168, 85, 247, 0.3);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .font-mono    { font-family: var(--font-mono); }
+  .font-display { font-family: var(--font-display); }
+
+  .text-accent   { color: #b86fff; }
+  .text-accent2  { color: #7c3aed; }
+  .text-muted    { color: #9a8fb0; }
+  .text-subtle   { color: #4a3f60; }
+
+  .bg-card        { background: #120f1e; }
+  .bg-card-light  { background: #ffffff; }
+
+  .border-accent  { border-color: rgba(160,100,255,0.15); }
+
+  .glow-accent {
+    box-shadow: 0 0 30px rgba(184,111,255,0.18);
+  }
+  .glow-accent-lg {
+    box-shadow: 0 0 60px rgba(184,111,255,0.25);
+  }
+
+  /* grid background */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(168,85,247,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168,85,247,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
